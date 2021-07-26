@@ -1,24 +1,16 @@
 import SwiftUI
 
-private struct ColorsForTable: Identifiable {
-    let name: String
-    let color: Color
-    var id: String {
-        name
-    }
-}
-
-private let colorsForTable: [ColorsForTable] = [
-    ColorsForTable(name: "Зелёный", color: .green),
-    ColorsForTable(name: "Розовый", color: .pink),
-    ColorsForTable(name: "Жёлтый", color: .yellow),
-    ColorsForTable(name: "Красный", color: .red),
-    ColorsForTable(name: "Синий", color: .blue),
-    ColorsForTable(name: "Серый", color: .gray),
-    ColorsForTable(name: "Оранжевый", color: .orange),
-    ColorsForTable(name: "Фиолетовый", color: .purple),
-    ColorsForTable(name: "Синий", color: .blue),
-    ColorsForTable(name: "Дефолтный", color: .blue)
+private let colorsForTable: [Model] = [
+    Model(name: "Зелёный", color: .green),
+    Model(name: "Розовый", color: .pink),
+    Model(name: "Жёлтый", color: .yellow),
+    Model(name: "Красный", color: .red),
+    Model(name: "Синий", color: .blue),
+    Model(name: "Серый", color: .gray),
+    Model(name: "Оранжевый", color: .orange),
+    Model(name: "Фиолетовый", color: .purple),
+    Model(name: "Синий", color: .blue),
+    Model(name: "Дефолтный", color: .blue)
 ]
 
 struct ContentView: View {
