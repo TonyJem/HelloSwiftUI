@@ -1,39 +1,52 @@
 import SwiftUI
 
+private struct ColorsForTable: Identifiable {
+    let name: String
+    let color: Color
+    var id: String {
+        name
+    }
+}
+
+private let colorsForTable: [ColorsForTable] = [
+    ColorsForTable(name: "Зелёный", color: .green),
+    ColorsForTable(name: "Розовый", color: .pink),
+    ColorsForTable(name: "Жёлтый", color: .yellow),
+    ColorsForTable(name: "Красный", color: .red),
+    ColorsForTable(name: "Синий", color: .blue),
+    ColorsForTable(name: "Серый", color: .gray),
+    ColorsForTable(name: "Оранжевый", color: .orange),
+    ColorsForTable(name: "Фиолетовый", color: .purple),
+    ColorsForTable(name: "Синий", color: .blue),
+    ColorsForTable(name: "Дефолтный", color: .blue)
+]
+
 struct ContentView: View {
     var body: some View {
         Form {
             Section(header: Text("Section 1")) {
-                Text("Это текст в первой секции")
-                Text("И это тоже")
+                Group {
+                    Text("Это текст в первой секции")
+                    Text("И это тоже")
+                }.font(.title3)
             }
             Section(header: Text("Section 2")) {
-                Text("А это уже текст второй секции")
-                Text("Да да")
+                Group {
+                    Text("А это уже текст второй секции")
+                    Text("Да да")
+                }.font(.title2)
             }
             Section(header: Text("Section 3")) {
-                Text("Здесь третья секция")
-                Text("Дальше идет перечисление цветов")
+                Group {
+                    Text("Здесь третья секция")
+                    Text("Дальше идёт перечисление цветов")
+                }.font(.title2)
             }
-            Section() {
-                Text("Зеленый")
-                    .foregroundColor(.green)
-                Text("Розовый")
-                    .foregroundColor(.pink)
-                Text("Жёлтый")
-                    .foregroundColor(.yellow)
-                Text("Красный")
-                    .foregroundColor(.red)
-                Text("Синий")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                Text("Серый")
-                    .foregroundColor(.gray)
-                Text("Оранжевый")
-                    .foregroundColor(.orange)
-                Text("Фиолетовый")
-                    .foregroundColor(.purple)
-                Text("Синий")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            ForEach(colorsForTable) { color in
+                Group {
+                    Text("\(color.name)")
+                }.font(.title2)
+                .foregroundColor(color.color)
             }
         }
     }
